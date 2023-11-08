@@ -1,0 +1,39 @@
+body{
+    
+    background-color:lightgray;
+    left: 40%;
+    top:40%;
+}
+ul{
+    position: relative;
+    list-style: none;
+    font-weight: bold;
+    font-family: 'Font Name', sans-serif;
+    display: flex;
+    padding: 0;
+    flex-wrap: wrap;
+}
+li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 100px;
+    margin: 10px;
+}
+img {
+    width: 100px; /* Set the desired width to decrease the image size */
+    height: 100px; /* Set the desired height to decrease the image size */
+    background-color: gray;
+    border-radius: 5px;
+    margin-right: 5px;
+  }
+button{
+ padding: 10px;
+
+}
+input{
+padding: 10px;
+
+
+}

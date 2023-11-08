@@ -1,0 +1,800 @@
+{
+    "assets":[
+    {
+    "appid":440,
+    "contextid":"2",
+    "assetid":"3699672924",
+    "classid":"331369",
+    "instanceid":"924246486",
+    "amount":"1"
+    },
+    {
+    "appid":440,
+    "contextid":"2",
+    "assetid":"4961598700",
+    "classid":"861706979",
+    "instanceid":"23967790",
+    "amount":"1"
+    },
+    {
+    "appid":440,
+    "contextid":"2",
+    "assetid":"4963124123",
+    "classid":"861706979",
+    "instanceid":"23967790",
+    "amount":"1"
+    },
+    {
+    "appid":440,
+    "contextid":"2",
+    "assetid":"4968190626",
+    "classid":"1714158497",
+    "instanceid":"23967790",
+    "amount":"1"
+    },
+    {
+    "appid":440,
+    "contextid":"2",
+    "assetid":"4997656245",
+    "classid":"1848848533",
+    "instanceid":"23967790",
+    "amount":"1"
+    },
+    {
+    "appid":440,
+    "contextid":"2",
+    "assetid":"4968222785",
+    "classid":"137",
+    "instanceid":"23967790",
+    "amount":"1"
+    },
+    {
+    "appid":440,
+    "contextid":"2",
+    "assetid":"4998010986",
+    "classid":"87",
+    "instanceid":"23967790",
+    "amount":"1"
+    }
+    ],
+    "descriptions":[
+    {
+    "appid":440,
+    "classid":"331369",
+    "instanceid":"924246486",
+    "currency":0,
+    "background_color":"3C352E",
+    "icon_url":"fWFc82js0fmoRAP-qOIPu5THSWqfSmTELLqcUywGkijVjZULUrsm1j-9xgECaDgTXB_lvQdBmsfoF_ezBOESnN975sgC32I_xFV-MrvnMjNic1GUUKEND_Bu9l-4CHYz7sM7BY7j87gDfxKv6tWeoo5XMA",
+    "icon_url_large":"fWFc82js0fmoRAP-qOIPu5THSWqfSmTELLqcUywGkijVjZULUrsm1j-9xgECaDgTXB_lvQdBmsfoF_ezBOESnN975sgC32I_xFV-MrvnMjNic1GUUKEND_Bu9l-4CHYz7sM7BY7j87gDfxKv6tWeoo5XMA",
+    "descriptions":[
+    {
+    "value":"Hire Date: Monday, March 30, 2015 (8:29:52) GMT"
+    },
+    {
+    "value":"Even though you were late to the party, you were still the life of it."
+    },
+    {
+    "value":" "
+    },
+    {
+    "value":"( Not Tradable or Marketable )"
+    }
+    ],
+    "tradable":0,
+    "actions":[
+    {
+    "link":"http://wiki.teamfortress.com/scripts/itemredirect.php?id=166&lang=en_US",
+    "name":"Item Wiki Page..."
+    },
+    {
+    "link":"steam://rungame/440/76561202255233023/+tf_econ_item_preview%20S%owner_steamid%A%assetid%D16189493311756960764",
+    "name":"Inspect in Game..."
+    }
+    ],
+    "name":"Mercenary",
+    "name_color":"7D6D00",
+    "type":"Level 5 Badge",
+    "market_name":"Mercenary",
+    "market_hash_name":"Mercenary",
+    "market_actions":[
+    {
+    "link":"steam://rungame/440/76561202255233023/+tf_econ_item_preview%20M%listingid%A%assetid%D16189493311756960764",
+    "name":"Inspect in Game..."
+    }
+    ],
+    "commodity":0,
+    "market_tradable_restriction":7,
+    "market_marketable_restriction":0,
+    "marketable":0,
+    "tags":[
+    {
+    "category":"Quality",
+    "internal_name":"Unique",
+    "localized_category_name":"Quality",
+    "localized_tag_name":"Unique",
+    "color":"7D6D00"
+    },
+    {
+    "category":"Type",
+    "internal_name":"misc",
+    "localized_category_name":"Type",
+    "localized_tag_name":"Cosmetic"
+    },
+    {
+    "category":"Class",
+    "internal_name":"Scout",
+    "localized_category_name":"Class",
+    "localized_tag_name":"Scout"
+    },
+    {
+    "category":"Class",
+    "internal_name":"Sniper",
+    "localized_category_name":"Class",
+    "localized_tag_name":"Sniper"
+    },
+    {
+    "category":"Class",
+    "internal_name":"Soldier",
+    "localized_category_name":"Class",
+    "localized_tag_name":"Soldier"
+    },
+    {
+    "category":"Class",
+    "internal_name":"Demoman",
+    "localized_category_name":"Class",
+    "localized_tag_name":"Demoman"
+    },
+    {
+    "category":"Class",
+    "internal_name":"Medic",
+    "localized_category_name":"Class",
+    "localized_tag_name":"Medic"
+    },
+    {
+    "category":"Class",
+    "internal_name":"Heavy",
+    "localized_category_name":"Class",
+    "localized_tag_name":"Heavy"
+    },
+    {
+    "category":"Class",
+    "internal_name":"Pyro",
+    "localized_category_name":"Class",
+    "localized_tag_name":"Pyro"
+    },
+    {
+    "category":"Class",
+    "internal_name":"Spy",
+    "localized_category_name":"Class",
+    "localized_tag_name":"Spy"
+    },
+    {
+    "category":"Class",
+    "internal_name":"Engineer",
+    "localized_category_name":"Class",
+    "localized_tag_name":"Engineer"
+    }
+    ]
+    },
+    {
+    "appid":440,
+    "classid":"861706979",
+    "instanceid":"23967790",
+    "currency":0,
+    "background_color":"3C352E",
+    "icon_url":"fWFc82js0fmoRAP-qOIPu5THSWqfSmTELLqcUywGkijVjZULUrsm1j-9xgEIfgYFWCT0uSpKidzvAvyzBOESnN97ssQAi2VpxFR6MuKxZGNkc1CSVqILDfc7ol_qXn5k7J8yDIDi9u9TehKv6tXyIw0bbw",
+    "icon_url_large":"fWFc82js0fmoRAP-qOIPu5THSWqfSmTELLqcUywGkijVjZULUrsm1j-9xgEIfgYFWCT0uSpKidzvAvyzBOESnN97ssQAi2VpxFR6MuKxZGNkc1CSVqILDfc7ol_qXn5k7J8yDIDi9u9TehKv6tXyIw0bbw",
+    "descriptions":[
+    {
+    "value":"Crate Series #92",
+    "color":"7ea9d1"
+    },
+    {
+    "value":"You need a Mann Co. Supply Crate Key to open this. You can pick one up at the Mann Co. Store."
+    },
+    {
+    "value":" "
+    },
+    {
+    "value":"This crate contains one of the following items. Weapons will be Strange quality."
+    },
+    {
+    "value":" The Candy Cane",
+    "color":"6F6A63"
+    },
+    {
+    "value":" The Dalokohs Bar",
+    "color":"6F6A63"
+    },
+    {
+    "value":" The Warrior's Spirit",
+    "color":"6F6A63"
+    },
+    {
+    "value":" The Apoco-Fists",
+    "color":"6F6A63"
+    },
+    {
+    "value":" The Red-Tape Recorder",
+    "color":"6F6A63"
+    },
+    {
+    "value":" The Claidheamh Mòr",
+    "color":"6F6A63"
+    },
+    {
+    "value":" The Wrangler",
+    "color":"6F6A63"
+    },
+    {
+    "value":" The Shahanshah",
+    "color":"6F6A63"
+    },
+    {
+    "value":" The Cloak and Dagger",
+    "color":"6F6A63"
+    },
+    {
+    "value":" The Buff Banner",
+    "color":"6F6A63"
+    },
+    {
+    "value":" Righteous Bison Strangifier",
+    "color":"6F6A63"
+    },
+    {
+    "value":" The Kritzkrieg",
+    "color":"6F6A63"
+    },
+    {
+    "value":"or an Exceedingly Rare Special Item!",
+    "color":"7ea9d1"
+    },
+    {
+    "value":" "
+    },
+    {
+    "value":"( Not Tradable or Marketable )"
+    }
+    ],
+    "tradable":0,
+    "actions":[
+    {
+    "link":"http://wiki.teamfortress.com/scripts/itemredirect.php?id=5803&lang=en_US",
+    "name":"Item Wiki Page..."
+    }
+    ],
+    "name":"Mann Co. Supply Munition Series #92",
+    "name_color":"7D6D00",
+    "type":"Level 20 Supply Crate",
+    "market_name":"Mann Co. Supply Munition Series #92",
+    "market_hash_name":"Mann Co. Supply Munition Series #92",
+    "commodity":1,
+    "market_tradable_restriction":7,
+    "market_marketable_restriction":0,
+    "marketable":0,
+    "tags":[
+    {
+    "category":"Quality",
+    "internal_name":"Unique",
+    "localized_category_name":"Quality",
+    "localized_tag_name":"Unique",
+    "color":"7D6D00"
+    },
+    {
+    "category":"Type",
+    "internal_name":"Supply Crate",
+    "localized_category_name":"Type",
+    "localized_tag_name":"Crate"
+    }
+    ]
+    },
+    {
+    "appid":440,
+    "classid":"1714158497",
+    "instanceid":"23967790",
+    "currency":0,
+    "background_color":"3C352E",
+    "icon_url":"fWFc82js0fmoRAP-qOIPu5THSWqfSmTELLqcUywGkijVjZULUrsm1j-9xgEIYxQcWA_ruwdAidvjMuGcGukOnOU55IJS3Hg7kgR-ZuXhYGIzIgbEUaMLCfQ4oVvuCnc2sMJhA4Kzp7hTKgTvtoqTLfByZzDE6rke",
+    "icon_url_large":"fWFc82js0fmoRAP-qOIPu5THSWqfSmTELLqcUywGkijVjZULUrsm1j-9xgEIYxQcWA_ruwdAidvjMuGcGukOnOU55IJS3Hg7kgR-ZuXhYGIzIgbEUaMLCfQ4oVvuCnc2sMJhA4Kzp7hTKgTvtoqTLfByZzDE6rke",
+    "descriptions":[
+    {
+    "value":"This case is locked and requires a Mayflower Cosmetic Key to open. Contains a community made item from the Mayflower Cosmetic Collection."
+    },
+    {
+    "value":" "
+    },
+    {
+    "value":"Contents may be Strange or an Unusual Mayflower Hat",
+    "color":"7ea9d1"
+    },
+    {
+    "value":" "
+    },
+    {
+    "value":" "
+    },
+    {
+    "value":"Mayflower Cosmetics Collection"
+    },
+    {
+    "value":" The Dead Head",
+    "color":"eb4b4b"
+    },
+    {
+    "value":" Bedouin Bandana",
+    "color":"eb4b4b"
+    },
+    {
+    "value":" Dad Duds",
+    "color":"d32ce6"
+    },
+    {
+    "value":" The Dayjogger",
+    "color":"d32ce6"
+    },
+    {
+    "value":" Herald's Helm",
+    "color":"8847ff"
+    },
+    {
+    "value":" The Lurking Legionnaire",
+    "color":"8847ff"
+    },
+    {
+    "value":" Gauzed Gaze",
+    "color":"8847ff"
+    },
+    {
+    "value":" Patriot's Pouches",
+    "color":"8847ff"
+    },
+    {
+    "value":" Courtly Cuirass",
+    "color":"4b69ff"
+    },
+    {
+    "value":" Squire's Sabatons",
+    "color":"4b69ff"
+    },
+    {
+    "value":" The Surgical Survivalist",
+    "color":"4b69ff"
+    },
+    {
+    "value":" The Demo's Dustcatcher",
+    "color":"4b69ff"
+    },
+    {
+    "value":" Scoped Spartan",
+    "color":"4b69ff"
+    },
+    {
+    "value":" The Airdog",
+    "color":"4b69ff"
+    },
+    {
+    "value":" "
+    },
+    {
+    "value":"Case Global Unusual Effect(s)"
+    },
+    {
+    "value":"★ Unusual Effect: Celestial Summit",
+    "color":"ffd700"
+    },
+    {
+    "value":"★ Unusual Effect: Stellar Ascent",
+    "color":"ffd700"
+    },
+    {
+    "value":"★ Unusual Effect: Stellar Ascent",
+    "color":"ffd700"
+    },
+    {
+    "value":"★ Unusual Effect: Sapped",
+    "color":"ffd700"
+    },
+    {
+    "value":"★ Unusual Effect: Sapped",
+    "color":"ffd700"
+    },
+    {
+    "value":"★ Unusual Effect: Sapped",
+    "color":"ffd700"
+    },
+    {
+    "value":"★ Unusual Effect: Hellspawned Horns",
+    "color":"ffd700"
+    },
+    {
+    "value":"★ Unusual Effect: Demonic Impaler",
+    "color":"ffd700"
+    },
+    {
+    "value":"★ Unusual Effect: Revenant's Rack",
+    "color":"ffd700"
+    },
+    {
+    "value":"★ Unusual Effect: Sixth Sense",
+    "color":"ffd700"
+    },
+    {
+    "value":"★ Unusual Effect: Sixth Sense",
+    "color":"ffd700"
+    },
+    {
+    "value":"★ Unusual Effect: Amygdala",
+    "color":"ffd700"
+    },
+    {
+    "value":"★ Unusual Effect: The Bone Zone",
+    "color":"ffd700"
+    },
+    {
+    "value":"★ Unusual Effect: The Bone Zone",
+    "color":"ffd700"
+    },
+    {
+    "value":"★ Unusual Effect: The Bone Zone",
+    "color":"ffd700"
+    },
+    {
+    "value":"★ Unusual Effect: Arachne's Web",
+    "color":"ffd700"
+    },
+    {
+    "value":"★ Unusual Effect: Arachne's Web",
+    "color":"ffd700"
+    },
+    {
+    "value":"★ Unusual Effect: Arachne's Web",
+    "color":"ffd700"
+    },
+    {
+    "value":"★ Unusual Effect: Acidic Climate",
+    "color":"ffd700"
+    },
+    {
+    "value":"★ Unusual Effect: Otherworldly Weather",
+    "color":"ffd700"
+    },
+    {
+    "value":"★ Unusual Effect: Nightmarish Storm",
+    "color":"ffd700"
+    },
+    {
+    "value":" "
+    },
+    {
+    "value":"Case Global Bonus Item(s)"
+    },
+    {
+    "value":"Paint Cans! Taunt Unusualifiers! MvM Tickets! And TF2 Tools!"
+    },
+    {
+    "value":"Inspect for full list of unusual effects and more details"
+    },
+    {
+    "value":" "
+    },
+    {
+    "value":"( Not Tradable or Marketable )"
+    }
+    ],
+    "tradable":0,
+    "actions":[
+    {
+    "link":"http://wiki.teamfortress.com/scripts/itemredirect.php?id=5849&lang=en_US",
+    "name":"Item Wiki Page..."
+    },
+    {
+    "link":"steam://rungame/440/76561202255233023/+tf_econ_item_preview%20S%owner_steamid%A%assetid%D432853120138952335",
+    "name":"Inspect in Game..."
+    }
+    ],
+    "name":"Mayflower Cosmetic Case",
+    "name_color":"7D6D00",
+    "type":"",
+    "market_name":"Mayflower Cosmetic Case",
+    "market_hash_name":"Mayflower Cosmetic Case",
+    "market_actions":[
+    {
+    "link":"steam://rungame/440/76561202255233023/+tf_econ_item_preview%20M%listingid%A%assetid%D432853120138952335",
+    "name":"Inspect in Game..."
+    }
+    ],
+    "commodity":1,
+    "market_tradable_restriction":7,
+    "market_marketable_restriction":0,
+    "marketable":0,
+    "tags":[
+    {
+    "category":"Quality",
+    "internal_name":"Unique",
+    "localized_category_name":"Quality",
+    "localized_tag_name":"Unique",
+    "color":"7D6D00"
+    },
+    {
+    "category":"Type",
+    "internal_name":"Supply Crate",
+    "localized_category_name":"Type",
+    "localized_tag_name":"Crate"
+    },
+    {
+    "category":"Collection",
+    "internal_name":"MayflowerCosmetics_collection",
+    "localized_category_name":"Collection",
+    "localized_tag_name":"Mayflower Cosmetics Collection"
+    }
+    ]
+    },
+    {
+    "appid":440,
+    "classid":"1848848533",
+    "instanceid":"23967790",
+    "currency":0,
+    "background_color":"3C352E",
+    "icon_url":"fWFc82js0fmoRAP-qOIPu5THSWqfSmTELLqcUywGkijVjZULUrsm1j-9xgEIfgYFWCTxrCpChs_jMuWJCfAPlckK6ZFH3jMlx1kpYbHgNTYyKgGUVPdbCfM_rAm0WiRguJYxBtGzruxReQ3ntoLBZa5sbo_yPNmUMw",
+    "icon_url_large":"fWFc82js0fmoRAP-qOIPu5THSWqfSmTELLqcUywGkijVjZULUrsm1j-9xgEIfgYFWCTxrCpChs_jMuWJCfAPlckK6ZFH3jMlx1kpYbHgNTYyKgGUVPdbCfM_rAm0WiRguJYxBtGzruxReQ3ntoLBZa5sbo_yPNmUMw",
+    "descriptions":[
+    {
+    "value":"Crate Series #103",
+    "color":"7ea9d1"
+    },
+    {
+    "value":"You need a Mann Co. Supply Crate Key to open this. You can pick one up at the Mann Co. Store."
+    },
+    {
+    "value":" "
+    },
+    {
+    "value":"This crate contains one of the following items. Weapons will be Strange quality."
+    },
+    {
+    "value":" The Iron Bomber",
+    "color":"6F6A63"
+    },
+    {
+    "value":" The Panic Attack",
+    "color":"6F6A63"
+    },
+    {
+    "value":" The Back Scatter",
+    "color":"6F6A63"
+    },
+    {
+    "value":" The Quickiebomb Launcher",
+    "color":"6F6A63"
+    },
+    {
+    "value":" The Ambassador",
+    "color":"6F6A63"
+    },
+    {
+    "value":" The Reserve Shooter",
+    "color":"6F6A63"
+    },
+    {
+    "value":" The Degreaser",
+    "color":"6F6A63"
+    },
+    {
+    "value":" The Powerjack",
+    "color":"6F6A63"
+    },
+    {
+    "value":" Natascha",
+    "color":"6F6A63"
+    },
+    {
+    "value":" The Sandvich",
+    "color":"6F6A63"
+    },
+    {
+    "value":" Strange Part: Damage Dealt",
+    "color":"6F6A63"
+    },
+    {
+    "value":" Strange Part: Allied Healing Done",
+    "color":"6F6A63"
+    },
+    {
+    "value":" Strange Part: Critical Kills",
+    "color":"6F6A63"
+    },
+    {
+    "value":" Strange Part: Pyros Killed",
+    "color":"6F6A63"
+    },
+    {
+    "value":" Strange Part: Heavies Killed",
+    "color":"6F6A63"
+    },
+    {
+    "value":"or an Exceedingly Rare Special Item!",
+    "color":"7ea9d1"
+    },
+    {
+    "value":" "
+    },
+    {
+    "value":"( Not Tradable or Marketable )"
+    }
+    ],
+    "tradable":0,
+    "actions":[
+    {
+    "link":"http://wiki.teamfortress.com/scripts/itemredirect.php?id=5859&lang=en_US",
+    "name":"Item Wiki Page..."
+    }
+    ],
+    "name":"Mann Co. Supply Munition Series #103",
+    "name_color":"7D6D00",
+    "type":"Level 20 Supply Crate",
+    "market_name":"Mann Co. Supply Munition Series #103",
+    "market_hash_name":"Mann Co. Supply Munition Series #103",
+    "commodity":1,
+    "market_tradable_restriction":7,
+    "market_marketable_restriction":0,
+    "marketable":0,
+    "tags":[
+    {
+    "category":"Quality",
+    "internal_name":"Unique",
+    "localized_category_name":"Quality",
+    "localized_tag_name":"Unique",
+    "color":"7D6D00"
+    },
+    {
+    "category":"Type",
+    "internal_name":"Supply Crate",
+    "localized_category_name":"Type",
+    "localized_tag_name":"Crate"
+    }
+    ]
+    },
+    {
+    "appid":440,
+    "classid":"137",
+    "instanceid":"23967790",
+    "currency":0,
+    "background_color":"3C352E",
+    "icon_url":"fWFc82js0fmoRAP-qOIPu5THSWqfSmTELLqcUywGkijVjZULUrsm1j-9xgEIUwUeSiTuuSpEjYa0XfHcX7FSzY0xt8QEi24-kFYoZ7flZGQ0dAGTB_RfX6Nrp13pXCU0ptdtU0RvzSF9",
+    "icon_url_large":"fWFc82js0fmoRAP-qOIPu5THSWqfSmTELLqcUywGkijVjZULUrsm1j-9xgEIUwUeSiTuuSpEjYa0XfHcX7FSzY0xt8QEi24-kFYoZ7flZGQ0dAGTB_RfX6Nrp13pXCU0ptdtU0RvzSF9",
+    "descriptions":[
+    {
+    "value":" "
+    },
+    {
+    "value":"( Not Tradable or Marketable )"
+    }
+    ],
+    "tradable":0,
+    "actions":[
+    {
+    "link":"http://wiki.teamfortress.com/scripts/itemredirect.php?id=56&lang=en_US",
+    "name":"Item Wiki Page..."
+    }
+    ],
+    "name":"The Huntsman",
+    "name_color":"7D6D00",
+    "type":"Level 10 Bow",
+    "market_name":"The Huntsman",
+    "market_hash_name":"The Huntsman",
+    "commodity":0,
+    "market_tradable_restriction":7,
+    "market_marketable_restriction":0,
+    "marketable":0,
+    "tags":[
+    {
+    "category":"Quality",
+    "internal_name":"Unique",
+    "localized_category_name":"Quality",
+    "localized_tag_name":"Unique",
+    "color":"7D6D00"
+    },
+    {
+    "category":"Type",
+    "internal_name":"primary",
+    "localized_category_name":"Type",
+    "localized_tag_name":"Primary weapon"
+    },
+    {
+    "category":"Class",
+    "internal_name":"Sniper",
+    "localized_category_name":"Class",
+    "localized_tag_name":"Sniper"
+    }
+    ]
+    },
+    {
+    "appid":440,
+    "classid":"87",
+    "instanceid":"23967790",
+    "currency":0,
+    "background_color":"3C352E",
+    "icon_url":"fWFc82js0fmoRAP-qOIPu5THSWqfSmTELLqcUywGkijVjZULUrsm1j-9xgEIUw0QWiTuuSpEjYbgDKTUUbRRnY0zvJENjjJpkwUtZ7O2Mm5kcVaSUPJfDqNjpVC1XXBjptdtUw5AXZ6j",
+    "icon_url_large":"fWFc82js0fmoRAP-qOIPu5THSWqfSmTELLqcUywGkijVjZULUrsm1j-9xgEIUw0QWiTuuSpEjYbgDKTUUbRRnY0zvJENjjJpkwUtZ7O2Mm5kcVaSUPJfDqNjpVC1XXBjptdtUw5AXZ6j",
+    "descriptions":[
+    {
+    "value":"+15% faster firing speed",
+    "color":"7ea9d1"
+    },
+    {
+    "value":"Construction hit speed boost increased by 30%",
+    "color":"7ea9d1"
+    },
+    {
+    "value":"-25% damage penalty",
+    "color":"d83636"
+    },
+    {
+    "value":"20% slower repair rate",
+    "color":"d83636"
+    },
+    {
+    "value":"-33% damage penalty vs buildings",
+    "color":"d83636"
+    },
+    {
+    "value":" "
+    },
+    {
+    "value":"( Not Tradable or Marketable )"
+    }
+    ],
+    "tradable":0,
+    "actions":[
+    {
+    "link":"http://wiki.teamfortress.com/scripts/itemredirect.php?id=329&lang=en_US",
+    "name":"Item Wiki Page..."
+    },
+    {
+    "link":"steam://rungame/440/76561202255233023/+tf_econ_item_preview%20S%owner_steamid%A%assetid%D4785147625129439981",
+    "name":"Inspect in Game..."
+    }
+    ],
+    "name":"The Jag",
+    "name_color":"7D6D00",
+    "type":"Level 15 Wrench",
+    "market_name":"The Jag",
+    "market_hash_name":"The Jag",
+    "market_actions":[
+    {
+    "link":"steam://rungame/440/76561202255233023/+tf_econ_item_preview%20M%listingid%A%assetid%D4785147625129439981",
+    "name":"Inspect in Game..."
+    }
+    ],
+    "commodity":0,
+    "market_tradable_restriction":7,
+    "market_marketable_restriction":0,
+    "marketable":0,
+    "tags":[
+    {
+    "category":"Quality",
+    "internal_name":"Unique",
+    "localized_category_name":"Quality",
+    "localized_tag_name":"Unique",
+    "color":"7D6D00"
+    },
+    {
+    "category":"Type",
+    "internal_name":"melee",
+    "localized_category_name":"Type",
+    "localized_tag_name":"Melee weapon"
+    },
+    {
+    "category":"Class",
+    "internal_name":"Engineer",
+    "localized_category_name":"Class",
+    "localized_tag_name":"Engineer"
+    }
+    ]
+    }
+    ],
+    "total_inventory_count":7,
+    "success":1,
+    "rwgrsn":-2
+    }
