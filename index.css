@@ -3,7 +3,15 @@ body{
     background-color:lightgray;
     left: 40%;
     top:40%;
+    background-image: url(icon/csgo.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
 }
+
+
+
+
 ul{
     position: relative;
     list-style: none;
@@ -12,6 +20,7 @@ ul{
     display: flex;
     padding: 0;
     flex-wrap: wrap;
+    overflow: auto;
 }
 li{
     display: flex;

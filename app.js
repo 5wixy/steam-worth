@@ -45,10 +45,10 @@ res.send("Welcome to your server")
     // Construct the URL for the inventory request
     const urlv = `https://steamcommunity.com/inventory/${steamID}/${appID}/2?l=english&count=2000&format=json`;
     const urlDeme = `http://localhost:3000/pData` //change later
-    fetchDataWithRetry(urlDeme, 3, res, dataItemArray);
+    fetchDataWithRetry(urlv, 3, res, dataItemArray);
 });
 
-function fetchDataWithRetry(urlDeme, retriesLeft, res, dataItemArray) {
+function fetchDataWithRetry(urlv, retriesLeft, res, dataItemArray) {
     dataItemArray = []
     data = ""
     if (retriesLeft === 0) {
@@ -57,7 +57,7 @@ function fetchDataWithRetry(urlDeme, retriesLeft, res, dataItemArray) {
         return;
     }
 
-   fetch(urlDeme, {credentials:'include'})
+   fetch(urlv, {credentials:'include'})
         .then(handleResponse)
         .then((data) => {
             // Log the data to the array and the console
@@ -110,6 +110,7 @@ function sendErrorResponse(res) {
        // Log the data to the array and the console
        //logDataToArray(dataItemArray, data);
        // Send the JSON response
+       //console.log(data)
        res.json(data);
    })
    .catch((error) => {
