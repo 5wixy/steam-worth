@@ -19,15 +19,23 @@ li{
     align-items: center;
     text-align: center;
     max-width: 100px;
-    margin: 10px;
+    margin: 20px;
+    border: 20px;
 }
 img {
-    width: 100px; /* Set the desired width to decrease the image size */
-    height: 100px; /* Set the desired height to decrease the image size */
+    width: 120px; /* Set the desired width to decrease the image size */
+    height: 120px; /* Set the desired height to decrease the image size */
     background-color: gray;
     border-radius: 5px;
-    margin-right: 5px;
+    margin-right: 10px;
+    background-size: cover;
+    border: 4px solid;
+    border-color: goldenrod;
   }
+  img:hover{
+    background-color: rgb(87, 85, 85);
+  }
+
 button{
  padding: 10px;
 

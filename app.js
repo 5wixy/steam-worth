@@ -88,7 +88,7 @@ function handleResponse(response) {
             throw new Error("Response body is empty");
         }
         
-        return response.json();
+        return response.json()
     } else {
         throw new Error("Request failed with status: " + response.status);
     }
@@ -98,55 +98,28 @@ function sendErrorResponse(res) {
     res.status(500).json({ error: "Request failed" });
 }
 
-/*function logDataToArray(dataItemArray, data) {
+  
+  
+  app.get('/itemprice/', (req, res) => {
+    const dataItemArray = []
+    console.log('Request received at /itemprice/');
+    const urlItemsPrice = `https://prices.csgotrader.app/latest/prices_v6.json`
+   fetch(urlItemsPrice)
+   .then(handleResponse)
+   .then((data) => {
+       // Log the data to the array and the console
+       //logDataToArray(dataItemArray, data);
+       // Send the JSON response
+       res.json(data);
+   })
+   .catch((error) => {
+       console.error(error);
+       if (!res.headersSent) {
+           sendErrorResponse(res);
+       }
+   });
     
-    // Log the JSON data to the array
-    dataItemArray.push(data);
-    // Log the JSON data to the console
-    //console.log(data);
-    const assetDescArray = [];
-   const assets = data['assets']
-   const descs = data['descriptions']
-   insertAssDescArray(assets,descs)
-}
-function insertAssDescArray(assets,descs){
-    const AssDescArray = []
-    assets.forEach((asset) => {
-        descs.forEach((description) => {
-            if (asset.instanceid === description.instanceid && asset.classid === description.classid) {
-                AssDescArray.push({ asset, description });
-            }
-        });
-    });
-    console.log(AssDescArray)
-    global.AssDarr = AssDescArray;
-    return AssDescArray;
-
-        }
-
-
-        app.get('/getAssDescArr', (req, res) => {
-            // Assuming you have already populated the global variable AssDarr with data
-            const AssDescArr = global.AssDarr;
-            res.json(AssDescArr);
-          }); */
-  
-
-  app.get('/getownedgames', function(req, res) {
-      let qParams = [];
-      for (var p in req.query) {
-          qParams.push({'name':p, 'value':req.query[p]})
-      }
-  let url = 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=XXXXXXXXXXXXXXXXX&steamid=' + qParams[0].name + '&format=json';
-      request(url, function(err, response, body) {
-          if(!err && response.statusCode < 400) {
-              console.log(body);
-              res.send(body);
-          }
-      });	
-  });
-  
-  
+})
   
   
   app.use(function(req,res){
