@@ -1,0 +1,60 @@
+@import url('https://fonts.cdnfonts.com/css/motiva-sans');
+#profile-card {
+  display: none; /* Initially hide the profile card */
+  width: 40%;
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, black, #111);
+  transition: background 0.5s ease;
+  text-align: center;
+  position: inherit;
+    
+  }
+  
+  
+  /* Style for the profile picture */
+  #profile-card img {
+    width: 200px; /* Adjust the width of the profile picture as needed */
+    height: 200px;
+    object-fit: cover;
+    border-radius: 2px;
+    border-right: 2px solid white; /* Adding border to the right of the image */
+  }
+  
+  /* Style for the container of profile information and item list */
+  #profile-card > div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Style for the profile information section */
+  #profile-card h1 {
+    margin: 10px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Motiva Sans';
+    font-weight: lighter;
+  }
+  
+  /* Style for the item list container */
+  #profile-card ul {
+    display: flex; /* Use flexbox for the item list */
+    flex-wrap: wrap; /* Allow the items to wrap to the next line if needed */
+    list-style: none; /* Remove default list styles */
+    padding: 3px;
+  }
+  
+  /* Style for each item in the list */
+  #profile-card ul li {
+    margin-right: 2px; /* Adjust the margin between items */
+  }
+  
+  #profile-card ul li img {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border: 1px solid white;
+  }

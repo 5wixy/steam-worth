@@ -1,16 +1,12 @@
 body{
-    
     background-color:lightgray;
     left: 40%;
     top:40%;
-    background-image: url(icon/csgo.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
     background-attachment: fixed;
+    background-image: url(icon/backgroundimg.jpg)
 }
-
-
-
 
 ul{
     position: relative;
@@ -31,11 +27,11 @@ li{
     margin: 20px;
     border: 20px;
 }
-img {
+li img {
     width: 120px; /* Set the desired width to decrease the image size */
     height: 120px; /* Set the desired height to decrease the image size */
     background-color: gray;
-    border-radius: 5px;
+    border-radius: 15px;
     margin-right: 10px;
     background-size: cover;
     border: 4px solid;
@@ -43,6 +39,12 @@ img {
   }
   img:hover{
     background-color: rgb(87, 85, 85);
+  }
+  li p{
+      margin: 0;
+      color: white;
+      -webkit-text-stroke: 0.5px black;
+      font-size: 18px;
   }
 
 button{
@@ -52,5 +54,81 @@ button{
 input{
 padding: 10px;
 
-
 }
+.tooltip {
+  position: absolute;
+  display: none;
+  background-color: #080707;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 1px;
+  max-width: 300px;
+  font-family: sans-serif;
+  color: lightgray;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1; /* Ensure it appears above other elements */
+}
+.tooltip-container .inline-styled-text {
+  color: black !important;
+  /* Add any other styles needed */
+}
+.tooltip button{
+  background: linear-gradient(to top, rgb(58, 57, 57), #b6b6b6);
+  transition: background 0.5s ease;
+  color: white;
+  border-radius: 3px;
+  padding-top: 5px;
+  cursor: pointer;
+  padding-bottom: 5px;
+}
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
+h1{
+  color:white;
+  -webkit-text-stroke: 1px black;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav li {
+  margin-right: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+  color: #ffd700; /* Change color on hover */
+}
+h1{
+  font-family: sans-serif;
+  font-weight: bolder;
+}
+
+
+
+

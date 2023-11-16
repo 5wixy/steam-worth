@@ -8,26 +8,35 @@
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="profilecard.css">
     <meta charset="UTF-8">
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Steam inventory worth calculator</title>
+    
 </head>
 <body>
-    
-    <h1>Steam Inventory Worth Calculator</h1>
-    <div>
-    <input type="text" id="input" placeholder="Steam ID" value="76561198044934487">
-    <input type="text" id="appid-el" placeholder="App ID">
+    <header>
+        <div class="logo">Steam Inventory Worth Calculator</div>
+        <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Compare</a></li>
+          </ul>
+        </nav>
+      </header>
+    <input type="text" id="input" placeholder="Steam ID/Profile URL" value="76561198044934487">
+    <input type="text" id="appid-el" placeholder="App ID" value="730">
     <button id="calc-btn">Calculate</button>
+    <div id="profile-card" class="card">
+        <ul id="gamesList"></ul>
+    </div>
     <h1 id="total-price"></h1>
     <br>
     <ul id="itemList">
             
         
     </ul>
-
     <script type="module" src="index.js"></script>    
-</div>
+
 </body>
 </html>
