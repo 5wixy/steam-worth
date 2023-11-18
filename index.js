@@ -8,7 +8,69 @@ let profileCard = document.getElementById('profile-card')
 let itemsWithPrices = [];
 let itemsArray = [];
 let ownedGamesArray = []
+let totalWorth = 0;
+  let totalWorthWeek = 0;
+  let totalWorthMonth = 0;
+  let totalWorth3Month = 0;
+const labels = ["90d", "30d", "7d", "24h"];
+const ctx = document.getElementById("priceChart").getContext("2d");
+function generateGraph(totalWorth, totalWorthWeek, totalWorthMonth, totalWorth3Month) {
+  ctx.canvas.style.borderColor = "darkgray";
+  const priceChart = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: "Price Trend",
+          data: [totalWorth3Month, totalWorthMonth, totalWorthWeek, totalWorth],
+          backgroundColor: "lightgreen",
+          borderColor: "lightgreen",
+          borderWidth: 3, // Adjust this value to make the line bolder
+          pointBackgroundColor: "lightgreen", // Color of the data points
+          pointBorderColor: "lightgreen", // Border color of the data points
+          pointRadius: 2, // Adjust this value to change the size of the data points
+          pointHoverRadius: 8, // Adjust this value to change the size of the data points on hover
+          pointHoverBorderColor: "lightgreen", // Border color of the data points on hover
+        },
+      ],
+    },
+    options: {
+      scales: {
+        x: {
+          beginAtZero: true,
+          grid: {
+            borderColor: "rgba(255, 255, 255, 1)", // Adjust color as needed
+            borderWidth: '50px', // Adjust this value to make the grid lines bolder
+            color: 'rgba(255, 255, 255, 0.3)'
+          },
+          ticks:{
+            font:{
+              weight:'bold'
+            }
+          }
+        },
+        y: {
+          beginAtZero: false,
+          grid: {
+            borderColor: "rgba(255, 255, 255, 1)", // Adjust color as needed
+            borderWidth: '50px', // Adjust this value to make the grid lines bolder
+            color: 'rgba(255, 255, 255, 0.3)'
+          },
+          ticks:{
+            font:{
+              weight:'bold'
+            }
+          }
+        },
+      },
+    },
+  });
+}
 calcBtn.addEventListener('click', async function () {
+  itemsL.innerHTML = "";
+  totalP.textContent = "";
+  profileCard.style.display = "none";
   let steamIDinput = userInput.value;
   let appID = appIDEl.value;
   let steamID = extractID(steamIDinput)
@@ -31,7 +93,7 @@ calcBtn.addEventListener('click', async function () {
       ownedGamesArray = processOwnedGames(ownedGamesData);
 
       // Combine arrays and display the result
-      display(itemsArray, itemsWithPrices,profileData,ownedGamesArray,steamID);
+      updateUI(itemsArray, itemsWithPrices, profileData, ownedGamesArray, steamID);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -90,7 +152,6 @@ function processItemsData(data) {
     });
   });
 
-  
   return assetDescArray;
 }
 
@@ -98,16 +159,22 @@ function logPricesIntoArray(prices) {
   const itemsWithPrices = [];
 
   for (const itemName in prices) {
-    const price = prices[itemName].steam.last_24h;
+    const price_last_day = prices[itemName].steam.last_24h;
+    const price_last_week = prices[itemName].steam.last_7d;
+    const price_last_month = prices[itemName].steam.last_30d;
+    const price_last_3M = prices[itemName].steam.last_90d;
     itemsWithPrices.push({
       item: itemName,
-      csgoEmpirePrice: price
+      lastDayPrice: price_last_day,
+      lastWeekPrice: price_last_week,
+      lastMonthPrice: price_last_month,
+      last3mPrice: price_last_3M,
     });
   }
 
-  
   return itemsWithPrices;
 }
+
 function processOwnedGames(ownedGamesData){
   let gamesArray =[]
   for (let i = 0; i < ownedGamesData.response.games.length; i++) {
@@ -116,179 +183,145 @@ function processOwnedGames(ownedGamesData){
   gamesArray.sort((a,b) => b.rtime_last_played - a.rtime_last_played);
   const nineGamesArray = gamesArray.slice(0,9)
   
-  
   return nineGamesArray;
-
-
 }
 
-function display(AssDescArray, itemsWithPrices, profileData, ownedGamesArray,steamID) {
-  let totalWorth = 0;
-  const combinedArray = AssDescArray.map(item => {
+function updateUI(itemsArray, itemsWithPrices, profileData, ownedGamesArray, steamID) {
+  const combinedArray = createCombinedArray(itemsArray, itemsWithPrices);
+
+  combinedArray.sort((a, b) => b.price - a.price);
+  updateProfileCard(profileData, ownedGamesArray);
+  updateItemList(combinedArray, steamID);
+}
+
+function createCombinedArray(AssDescArray, itemsWithPrices) {
+  return AssDescArray.map(item => {
     const matchingPrice = itemsWithPrices.find(priceItem => priceItem.item === item.description.market_name);
 
     if (matchingPrice) {
       return {
         asset: item.asset,
         description: item.description,
-        price: matchingPrice.csgoEmpirePrice,
+        price: matchingPrice.lastDayPrice,
+        priceW: matchingPrice.lastWeekPrice,
+        priceM: matchingPrice.lastMonthPrice,
+        price3M:matchingPrice.last3mPrice,
       };
     }
 
     console.log("MATCHING COMPLETE");
-
     return null;
   }).filter(Boolean);
+}
 
-  combinedArray.sort((a, b) => b.price - a.price);
+function updateProfileCard(profileData, ownedGamesArray) {
   profileCard.innerHTML = " ";
   profileCard.innerHTML += constructProfileCard(profileData, ownedGamesArray);
+}
+
+function updateItemList(combinedArray, steamID) {
   itemsL.innerHTML = "";
 
   // Create a tooltip element
+  var tooltip = createTooltip();
+
+  for (let item of combinedArray) {
+    var li = createListItem(item, steamID, tooltip);
+    itemsL.appendChild(li);
+  }
+
+  // Calculate total worth
+  let totalWorth = combinedArray.reduce((total, item) => total + item.price, 0);
+  let totalWorthWeek = combinedArray.reduce((total, item) => total + item.priceW, 0);
+  let totalWorthMonth = combinedArray.reduce((total, item) => total + item.priceM, 0);
+  let totalWorth3Month = combinedArray.reduce((total, item) => total + item.price3M, 0);
+  console.log("24h: " +totalWorth +" 7d: " + totalWorthWeek +" 30d: "+ totalWorthMonth + " 90d: " + totalWorth3Month)
+  generateGraph(totalWorth,totalWorthWeek,totalWorthMonth,totalWorth3Month,labels)
+  totalP.textContent = "Total Inventory Worth: " + (Math.round(totalWorth * 100) / 100).toFixed(2) + "$";
+}
+//Creating the tooltip box that shows basic item info
+function createTooltip() {
   var tooltip = document.createElement('div');
   tooltip.className = 'tooltip';
   document.body.appendChild(tooltip);
+  return tooltip;
+}
 
-  for (let item of combinedArray) {
-    var li = document.createElement('li');
-    var img = document.createElement('img');
-    var itemName = document.createElement('p');
-    var itemPrice = document.createElement('p');
+function createListItem(item, steamID, tooltip) {
+  var li = document.createElement('li');
+  var img = document.createElement('img');
+  var itemName = document.createElement('p');
+  var itemPrice = document.createElement('p');
 
-    img.src = `http://cdn.steamcommunity.com/economy/image/${item.description.icon_url}`;
-    li.appendChild(img);
+  img.src = `http://cdn.steamcommunity.com/economy/image/${item.description.icon_url}`;
+  li.appendChild(img);
 
-    itemName.textContent = item.description.market_name;
-    li.appendChild(itemName);
+  itemName.textContent = item.description.market_name;
+  li.appendChild(itemName);
 
-    itemPrice.textContent = item.price + "$";
-    li.appendChild(itemPrice);
+  itemPrice.textContent = item.price + "$";
+  li.appendChild(itemPrice);
 
-    li.addEventListener('mouseover', function (event) {
-      adjustTooltipPosition(event, tooltip);
-      // Update tooltip content and position
-      let itemDescArray = item.description.descriptions;
-      let itemAssId = item.asset.assetid
-      let inspectObj = item.description.actions;
-      let itemMarketActionsArray = item.description.market_actions
-      let tagsArray = item.description.tags
-      let inspectLink = ""
-      let listOfSkinsInCase = ""
-      if(itemDescArray.length > 7){//cases
-      itemDescArray.forEach(obj => {
-        if(obj.value != null && obj.value != " " && obj.value != ""){
+  img.addEventListener('mouseenter', function (event) {
+    handleMouseOver(event, item, steamID, tooltip);
+  });
+
+  img.addEventListener('mouseleave', function () {
+    tooltip.style.display = 'none';
+  });
+  tooltip.addEventListener('mouseenter', function () {
+    tooltip.style.display = 'block';
+  });
+
+  // Hide the tooltip when the cursor leaves it
+  tooltip.addEventListener('mouseleave', function () {
+    tooltip.style.display = 'none';
+  });
+
+  itemsL.appendChild(li);
+
+  return li;
+}
+
+function handleMouseOver(event, item, steamID, tooltip) {
+  adjustTooltipPosition(event, tooltip);
+
+  // Update tooltip content and position
+  let itemDescArray = item.description.descriptions;
+  let itemAssId = item.asset.assetid
+  let inspectObj = item.description.actions;
+  let inspectLink = "";
+  let listOfSkinsInCase = "";
+
+  if (itemDescArray.length > 7) { //cases
+    itemDescArray.forEach(obj => {
+      if (obj.value != null && obj.value != " " && obj.value != "") {
         listOfSkinsInCase += `<span style="color: #${obj.color || 'default'}">${obj.value}</span><br>`;
       }
-
-      })
-    }
-    else{//skins
-      itemDescArray.forEach(obj => {
-        
-        if(obj.value != null && obj.value != " " && obj.value != ""){
-          listOfSkinsInCase += `<span style="color: #${obj.color || 'default'}">${obj.value}</span><br><br>`;
-        }
-       
-
-      })
-      
-      inspectLink = inspectObj[0].link.replace('%owner_steamid%',steamID).replace('%assetid%',itemAssId)
-
-
-    }
-      
-      if(inspectLink != ""){
-      let itemColor = item.description.tags[4].color;
-      tooltip.innerHTML = `<strong><span style="color: #${itemColor}">${item.description.market_name}</span></strong><br><br>${listOfSkinsInCase}<br><a href=${inspectLink}><button>Inspect in Game...</button></a><br><br><b>Price: ${item.price}$</b>`;
+    })
+  } else { //skins
+    itemDescArray.forEach(obj => {
+      if (obj.value != null && obj.value != " " && obj.value != "") {
+        listOfSkinsInCase += `<span style="color: #${obj.color || 'default'}">${obj.value}</span><br><br>`;
       }
-      else{
-        tooltip.innerHTML = `<strong>${item.description.market_name}</strong><br><br>${listOfSkinsInCase}<br><br><b>Price: ${item.price}$</b>`;
-      }
-      tooltip.style.display = 'block';
-
-      // Position the tooltip relative to the mouse position
-      tooltip.style.top = (event.pageY + 10) + 'px';
-      tooltip.style.left = (event.pageX + 10) + 'px';
-    });
-
-    li.addEventListener('mouseout', function () {
-      // Hide tooltip on mouseout
-      tooltip.style.display = 'none';
-    });
-
-    // Prevent the tooltip from hiding when the mouse is over it
-    tooltip.addEventListener('mouseover', function () {
-      tooltip.style.display = 'block';
-    });
-
-    // Hide the tooltip when the mouse leaves it
-    tooltip.addEventListener('mouseout', function () {
-      tooltip.style.display = 'none';
-    });
-
-    itemsL.appendChild(li);
-
-    totalWorth += item.price;
+    })
+    inspectLink = inspectObj[0].link.replace('%owner_steamid%', steamID).replace('%assetid%', itemAssId)
   }
 
-  totalP.textContent = "Total Inventory Worth: " + (Math.round(totalWorth * 100) / 100).toFixed(2) + "$";
-  return AssDescArray;
-}
-function extractID(input){
-  if (/^\d+$/.test(input)) {
-    return input;
+  if (inspectLink != "") {
+    let itemColor = item.description.tags[4].color;
+    tooltip.innerHTML = `<strong><span style="color: #${itemColor}">${item.description.market_name}</span></strong><br><br>${listOfSkinsInCase}<br><a href=${inspectLink}><button>Inspect in Game...</button></a><br><br><b>Price: ${item.price}$</b>`;
+  } else {
+    tooltip.innerHTML = `<strong>${item.description.market_name}</strong><br><br>${listOfSkinsInCase}<br><br><b>Price: ${item.price}$</b>`;
   }
-  const regex = /(?:https?:\/\/)?steamcommunity\.com\/(?:profiles|id)\/([a-zA-Z0-9]+)/;
-  
-  // Use the regular expression to extract the user ID
-  const match = input.match(regex);
 
-  // If there is a match, return the user ID, otherwise return null
-  return match ? match[1] : null;
+  tooltip.style.display = 'block';
+  tooltip.style.top = (event.clientY + window.scrollY + 3) + 'px';
+  tooltip.style.left = (event.clientX + window.scrollX + 220> window.innerWidth)
+  ? (event.clientX + window.scrollX - 300) + 'px'
+  : (event.clientX + window.scrollX + 3) + 'px';
 }
 
-function constructProfileCard(profileData,ownedGamesArray){
-  profileCard.style.display = "flex";
-    const avatarFullUrl = profileData.response.players[0].avatarfull;
-    const playerName = profileData.response.players[0].personaname;
-    const playerState = profileData.response.players[0].personastate;
-    const steamProfileUrl = profileData.response.players[0].profileurl;
-    let borderColor = "";
-    switch (playerState) {
-      case 0: // Offline
-        borderColor = "rgba(104,104,104,255)";
-        break;
-      case 1: // Online
-        borderColor = "rgba(84,165,197,255)";
-        break;
-      case 2: // In-Game
-        borderColor = "rgba(143,185,59,255)";
-        break;
-      default:
-        borderColor = "rgba(104,104,104,255)"; // Default color or handle other states
-    }
-    
-    const cardHtml = `<div class="profile-card" >
-                          <a href='${steamProfileUrl}'>
-                          <img src='${avatarFullUrl}' style="border: 2px solid ${borderColor}">
-                          </a>
-                          <h1>${playerName}</h1>
-                          <ul>${generateListItems(ownedGamesArray)}</ul>
-                        </div>`;
-
-
-  
-    return cardHtml;
-}
-function generateListItems(array) {
-  let listItems = '';
-  for (const item of array) {
-    listItems += `<li><a href='https://store.steampowered.com/app/${item.appid}'><img src='https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/${item.appid}/${item.img_icon_url}.jpg'></a></li>`;
-  
-  }
-  return listItems;
-}
 function adjustTooltipPosition(event, tooltip) {
   const tooltipWidth = tooltip.offsetWidth;
   const tooltipHeight = tooltip.offsetHeight;
@@ -308,7 +341,89 @@ function adjustTooltipPosition(event, tooltip) {
     topPosition = pageHeight - tooltipHeight;
   }
 
+  // Ensure the tooltip stays within the left page border
+  if (leftPosition < 0) {
+    leftPosition = 0;
+  }
+
+  // Ensure the tooltip stays within the top page border
+  if (topPosition < 0) {
+    topPosition = 0;
+  }
+
   tooltip.style.display = 'block';
   tooltip.style.top = topPosition + 'px';
   tooltip.style.left = leftPosition + 'px';
+}
+
+//Function that is used to extract the SteamID out of the profile URL format
+function extractID(input){
+  if (/^\d+$/.test(input)) {
+    return input;
+  }
+  const regex = /(?:https?:\/\/)?steamcommunity\.com\/(?:profiles|id)\/([a-zA-Z0-9]+)/;
+  
+  // Use the regular expression to extract the user ID
+  const match = input.match(regex);
+
+  // If there is a match, return the user ID, otherwise return null
+  return match ? match[1] : null;
+}
+
+function constructProfileCard(profileData, ownedGamesArray){
+  profileCard.style.display = "flex";
+  const avatarFullUrl = profileData.response.players[0].avatarfull;
+  const playerName = profileData.response.players[0].personaname;
+  const playerState = profileData.response.players[0].personastate;
+  const steamProfileUrl = profileData.response.players[0].profileurl;
+  let borderColor = "";
+  switch (playerState) {
+    case 0: // Offline
+      borderColor = "rgba(104,104,104,255)";
+      break;
+    case 1: // Online
+      borderColor = "rgba(84,165,197,255)";
+      break;
+    case 2: // In-Game
+      borderColor = "rgba(143,185,59,255)";
+      break;
+    default:
+      borderColor = "rgba(104,104,104,255)"; // Default color or handle other states
+  }
+
+  const cardHtml = `<div class="profile-card" >
+                      <a href='${steamProfileUrl}'>
+                      <img src='${avatarFullUrl}' style="border: 2px solid ${borderColor}">
+                      </a>
+                      <h1>${playerName}</h1>
+                      <ul>${generateListItems(ownedGamesArray)}</ul>
+                    </div>`;
+  
+  return cardHtml;
+}
+
+function generateListItems(array) {
+  let listItems = '';
+  for (const item of array) {
+    listItems += `<li><a href='https://store.steampowered.com/app/${item.appid}'><img src='https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/${item.appid}/${item.img_icon_url}.jpg'></a></li>`;
+  }
+  return listItems;
+}
+
+// Reset the chart on new query
+function resetChart() {
+  // Get the canvas element
+  const chartCanvas = document.getElementById("priceChart");
+
+  // Remove the existing chart if it exists
+  Chart.getChart(chartCanvas)?.destroy();
+  
+  // Create a new canvas element with the same ID
+  const newCanvas = document.createElement("canvas");
+  newCanvas.id = "priceChart";
+  chartCanvas.parentNode.replaceChild(newCanvas, chartCanvas);
+
+  // Get the new canvas context for chart rendering
+  const ctx = newCanvas.getContext("2d");
+  ctx.canvas.style.borderColor = "darkgray";
 }

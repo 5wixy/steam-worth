@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Steam inventory worth calculator</title>
-    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
@@ -23,19 +23,30 @@
             <li><a href="#">Compare</a></li>
           </ul>
         </nav>
+        <div class="submit">
+          <input type="text" id="input" placeholder="Steam ID/Profile URL" value="76561198044934487">
+          <input type="text" id="appid-el" placeholder="App ID" value="730">
+          <button id="calc-btn">Calculate</button>
+      </div>
       </header>
-    <input type="text" id="input" placeholder="Steam ID/Profile URL" value="76561198044934487">
-    <input type="text" id="appid-el" placeholder="App ID" value="730">
-    <button id="calc-btn">Calculate</button>
-    <div id="profile-card" class="card">
+      
+    <div class="container">
+      <div id="profile-card" class="card">
         <ul id="gamesList"></ul>
+      </div>
+      <div class="graph-container">
+        <canvas id="priceChart"></canvas>
+        <h1 id="total-price"></h1>
+      </div>
     </div>
-    <h1 id="total-price"></h1>
+    
     <br>
     <ul id="itemList">
             
         
     </ul>
+    <!--<button id="prev-page">prev</button>
+    <button id="next-page">next</button> -->
     <script type="module" src="index.js"></script>    
 
 </body>
