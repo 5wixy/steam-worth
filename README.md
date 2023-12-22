@@ -43,6 +43,6 @@ Feel free to contribute and fix any issues.
 
 ## Contact
 
-- Discord - [5wixy](https://discordapp.com/users/187576154641793024)
+- Discord - [[5wixy](https://discordapp.com/users/187576154641793024)](https://discordapp.com/users/187576154641793024)
 - GitHub - [github.com/5wixy](https://github.com/5wixy)
 
