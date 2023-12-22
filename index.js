@@ -1,3 +1,7 @@
+import { createFilterSortTab } from './filterSortTab.js';
+import { generateGraph } from './graph.js';
+
+
 let userInput = document.getElementById('input');
 let appIDEl = document.getElementById('appid-el');
 let calcBtn = document.getElementById("calc-btn");
@@ -8,65 +12,14 @@ let profileCard = document.getElementById('profile-card')
 let itemsWithPrices = [];
 let itemsArray = [];
 let ownedGamesArray = []
+const filterSortTab = createFilterSortTab();
 let totalWorth = 0;
   let totalWorthWeek = 0;
   let totalWorthMonth = 0;
   let totalWorth3Month = 0;
 const labels = ["90d", "30d", "7d", "24h"];
 const ctx = document.getElementById("priceChart").getContext("2d");
-function generateGraph(totalWorth, totalWorthWeek, totalWorthMonth, totalWorth3Month) {
-  ctx.canvas.style.borderColor = "darkgray";
-  const priceChart = new Chart(ctx, {
-    type: "line",
-    data: {
-      labels: labels,
-      datasets: [
-        {
-          label: "Price Trend",
-          data: [totalWorth3Month, totalWorthMonth, totalWorthWeek, totalWorth],
-          backgroundColor: "lightgreen",
-          borderColor: "lightgreen",
-          borderWidth: 3, // Adjust this value to make the line bolder
-          pointBackgroundColor: "lightgreen", // Color of the data points
-          pointBorderColor: "lightgreen", // Border color of the data points
-          pointRadius: 2, // Adjust this value to change the size of the data points
-          pointHoverRadius: 8, // Adjust this value to change the size of the data points on hover
-          pointHoverBorderColor: "lightgreen", // Border color of the data points on hover
-        },
-      ],
-    },
-    options: {
-      scales: {
-        x: {
-          beginAtZero: true,
-          grid: {
-            borderColor: "rgba(255, 255, 255, 1)", // Adjust color as needed
-            borderWidth: '50px', // Adjust this value to make the grid lines bolder
-            color: 'rgba(255, 255, 255, 0.3)'
-          },
-          ticks:{
-            font:{
-              weight:'bold'
-            }
-          }
-        },
-        y: {
-          beginAtZero: false,
-          grid: {
-            borderColor: "rgba(255, 255, 255, 1)", // Adjust color as needed
-            borderWidth: '50px', // Adjust this value to make the grid lines bolder
-            color: 'rgba(255, 255, 255, 0.3)'
-          },
-          ticks:{
-            font:{
-              weight:'bold'
-            }
-          }
-        },
-      },
-    },
-  });
-}
+
 calcBtn.addEventListener('click', async function () {
   itemsL.innerHTML = "";
   totalP.textContent = "";
@@ -188,10 +141,25 @@ function processOwnedGames(ownedGamesData){
 
 function updateUI(itemsArray, itemsWithPrices, profileData, ownedGamesArray, steamID) {
   const combinedArray = createCombinedArray(itemsArray, itemsWithPrices);
+  const filterOptions = ['Pistol', 'Rifle', 'SMG', 'Knife','Gloves','Cases','Graffiti'];
+const sortOptions = ['Price', 'Collection', 'Rarity','Type'];
 
+const filterSortTab = createFilterSortTab(filterOptions, sortOptions);
+const container = document.querySelector('.FSdiv'); // Adjust the selector if needed
+container.insertBefore(filterSortTab, container.firstChild);
+  
   combinedArray.sort((a, b) => b.price - a.price);
   updateProfileCard(profileData, ownedGamesArray);
   updateItemList(combinedArray, steamID);
+  if (combinedArray.length > 0) {
+    // Show the filter and sort tab
+    container.style.display = 'block';
+    console.log("AAAAAA")
+  } else {
+    // Hide the filter and sort tab
+    console.log("NO AAAAAA")
+    container.style.display = 'none';
+  }
 }
 
 function createCombinedArray(AssDescArray, itemsWithPrices) {
@@ -229,6 +197,8 @@ function updateItemList(combinedArray, steamID) {
     var li = createListItem(item, steamID, tooltip);
     itemsL.appendChild(li);
   }
+  
+  
 
   // Calculate total worth
   let totalWorth = combinedArray.reduce((total, item) => total + item.price, 0);
@@ -410,20 +380,3 @@ function generateListItems(array) {
   return listItems;
 }
 
-// Reset the chart on new query
-function resetChart() {
-  // Get the canvas element
-  const chartCanvas = document.getElementById("priceChart");
-
-  // Remove the existing chart if it exists
-  Chart.getChart(chartCanvas)?.destroy();
-  
-  // Create a new canvas element with the same ID
-  const newCanvas = document.createElement("canvas");
-  newCanvas.id = "priceChart";
-  chartCanvas.parentNode.replaceChild(newCanvas, chartCanvas);
-
-  // Get the new canvas context for chart rendering
-  const ctx = newCanvas.getContext("2d");
-  ctx.canvas.style.borderColor = "darkgray";
-}

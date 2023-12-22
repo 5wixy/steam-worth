@@ -20,14 +20,14 @@
   width: 200px;
   height: 200px;
   object-fit: cover;
-  border-radius: 8px; /* Adjust border-radius to match the card */
-  border: 2px solid white; /* Remove border from the right side */
+  border-radius: 8px; 
+  border: 2px solid white; 
 }
 
 #profile-card > div {
   display: flex;
   flex-direction: column;
-  padding: 8px; /* Add padding to the content */
+  padding: 8px; 
 }
 
 #profile-card h1 {
