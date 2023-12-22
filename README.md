@@ -5,7 +5,7 @@ CSGO Inventory worth calculator
 ## Description
 
  CSGO Inventory worth calculator is my debut JavaScript project, designed to fetch, calculate, and visualize the worth of your inventory. 
- With the power of JavaScript, this tool sends requests to obtain real-time inventory data, computes its total worth, and presents a graph to illustrate the historical price changes.
+This tool sends requests to obtain real-time inventory data, computes its total worth, and presents a graph to illustrate the historical price changes.
 ### Features:
 
  - Fetches inventory data through API requests.
@@ -42,6 +42,6 @@ Feel free to contribute and fix any issues.
 
 ## Contact
 
-- Discord - [[5wixy](https://discordapp.com/users/187576154641793024)](https://discordapp.com/users/187576154641793024)
+- Discord - [[5wixy](https://discordapp.com/users/187576154641793024)]
 - GitHub - [github.com/5wixy](https://github.com/5wixy)
 
