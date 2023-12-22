@@ -196,7 +196,8 @@ canvas {
 
 .tooltip {
   position: absolute;
-  display: none;
+  opacity: 0; 
+  pointer-events: none; 
   background-color: #080707;
   border: 1px solid #ccc;
   padding: 10px;
@@ -206,11 +207,15 @@ canvas {
   text-decoration: none;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   z-index: 1;
+  transition: opacity 0.5s ease; 
+}
+
+.tooltip.button-visible {
+  opacity: 1; 
 }
 
 .tooltip button {
   background: linear-gradient(to top, rgb(58, 57, 57), #b6b6b6);
-  transition: background 0.5s ease;
   color: white;
   border-radius: 3px;
   padding-top: 5px;
@@ -219,15 +224,22 @@ canvas {
   cursor: pointer;
 }
 
-.tooltip:hover {
-  display: block;
+
+li:hover .tooltip {
+  pointer-events: auto; 
+  opacity: 1;
+}
+
+
+li .tooltip {
+  transition: opacity 0.5s ease; 
 }
 .dropdown {
   position: relative;
   display: inline-block;
 }
 
-/* Style the button that will trigger the dropdown */
+
 .dropdown-button {
   background-color: #4CAF50;
   color: white;
@@ -239,7 +251,7 @@ canvas {
   cursor: pointer;
 }
 
-/* Style the dropdown content (hidden by default) */
+
 .dropdown-content {
   max-height: 0;
   overflow: hidden;
@@ -253,7 +265,7 @@ canvas {
   z-index: 1;
 }
 
-/* Style the dropdown links/options */
+
 .dropdown-content a {
   color: black;
   padding: 12px 16px;
@@ -263,26 +275,26 @@ canvas {
   box-sizing: border-box;
 }
 
-/* Change color on hover */
+
 .dropdown-content a:hover {
   background-color: #f1f1f1;
 }
 
-/* Show the dropdown content when the button is clicked or hovered */
+
 .dropdown:hover .dropdown-content {
-  max-height: 250px; /* Adjust the maximum height based on your content */
+  max-height: 250px; 
 }
 .dropdown-container {
   position: relative;
   display: inline-block;
   margin-left: 60px;
-   /* Adjust the margin as needed */
+   
 }
 
-/* Add this to your existing styles */
+
 .dropdown-container .dropdown-content {
   position: absolute;
-  top: 100%; /* Adjust this value to position the content below the button */
+  top: 100%; 
   background-color: #f9f9f9;
   min-width: 160px;
   margin-left: -231px;

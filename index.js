@@ -301,22 +301,22 @@ function adjustTooltipPosition(event, tooltip) {
   let topPosition = event.pageY + 10;
   let leftPosition = event.pageX + 10;
 
-  // Check if the tooltip exceeds the right page border
+  
   if (leftPosition + tooltipWidth > pageWidth) {
     leftPosition = pageWidth - tooltipWidth;
   }
 
-  // Check if the tooltip exceeds the bottom page border
+  
   if (topPosition + tooltipHeight > pageHeight) {
     topPosition = pageHeight - tooltipHeight;
   }
 
-  // Ensure the tooltip stays within the left page border
+  
   if (leftPosition < 0) {
     leftPosition = 0;
   }
 
-  // Ensure the tooltip stays within the top page border
+  
   if (topPosition < 0) {
     topPosition = 0;
   }
@@ -324,6 +324,15 @@ function adjustTooltipPosition(event, tooltip) {
   tooltip.style.display = 'block';
   tooltip.style.top = topPosition + 'px';
   tooltip.style.left = leftPosition + 'px';
+  tooltip.removeAttribute('style');
+  tooltip.offsetHeight;
+
+  // Add fade-in effect by applying the fade-in class
+  tooltip.style.opacity = '1';
+  tooltip.addEventListener('mouseleave', function () {
+    tooltip.style.opacity = '0';
+  });
+  
 }
 
 //Function that is used to extract the SteamID out of the profile URL format
