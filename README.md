@@ -18,7 +18,6 @@ CSGO Inventory worth calculator
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [Contact](#contact)
-- [Acknowledgments](#acknowledgments)
 
 ## Installation
 
